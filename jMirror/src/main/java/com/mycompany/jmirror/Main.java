@@ -5,13 +5,16 @@
  */
 package com.mycompany.jmirror;
 
+import java.util.*;
+
 /**
  *
  * @author tux
  */
 public class Main extends javax.swing.JFrame
 {
-
+    static Main m;
+    
     /**
      * Creates new form Main
      */
@@ -31,9 +34,9 @@ public class Main extends javax.swing.JFrame
     {
 
         jPanel1 = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
+        checkboxSmtp = new javax.swing.JCheckBox();
+        checkboxFtp = new javax.swing.JCheckBox();
+        btnLaunch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
 
@@ -42,16 +45,16 @@ public class Main extends javax.swing.JFrame
 
         jPanel1.setName(""); // NOI18N
 
-        jCheckBox1.setText("SMTP");
+        checkboxSmtp.setText("SMTP");
 
-        jCheckBox2.setText("FTP");
+        checkboxFtp.setText("FTP");
 
-        jButton1.setText("Launch");
-        jButton1.addActionListener(new java.awt.event.ActionListener()
+        btnLaunch.setText("Launch");
+        btnLaunch.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                jButton1ActionPerformed(evt);
+                btnLaunchActionPerformed(evt);
             }
         });
 
@@ -61,21 +64,21 @@ public class Main extends javax.swing.JFrame
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox2))
+                    .addComponent(checkboxSmtp)
+                    .addComponent(checkboxFtp))
                 .addGap(0, 9, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1))
+                .addComponent(btnLaunch))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jCheckBox1)
+                .addComponent(checkboxSmtp)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox2)
+                .addComponent(checkboxFtp)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1))
+                .addComponent(btnLaunch))
         );
 
         jTextArea1.setColumns(20);
@@ -106,10 +109,28 @@ public class Main extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
-    {//GEN-HEADEREND:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private ServiceType textToService(String text)
+    {
+        if (text == "SMTP")
+        {
+            return ServiceType.SMTP;
+        }
+        else if (text == "FTP")
+        {
+            return ServiceType.FTP;
+        }
+        else
+        {
+            return ServiceType.UNKNOWN;
+        }
+    }
+    
+    private void btnLaunchActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnLaunchActionPerformed
+    {//GEN-HEADEREND:event_btnLaunchActionPerformed
+        // launch services
+        Networker.launchService(textToService(m.checkboxSmtp.getText()), m.checkboxSmtp.isSelected());
+        Networker.launchService(textToService(m.checkboxFtp.getText()), m.checkboxFtp.isSelected());
+    }//GEN-LAST:event_btnLaunchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,20 +172,19 @@ public class Main extends javax.swing.JFrame
         {
             public void run()
             {
-                Main m = new Main();
+                m = new Main();
                 m.setVisible(true);
                 m.setLocationRelativeTo(null); // center screen
                 m.jTextArea1.setEditable(false);
                 m.jTextArea1.append(Const.INIT_MSG);
-                Networker.launchService(ServiceType.SMTP);
             }
         });
             }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JButton btnLaunch;
+    private javax.swing.JCheckBox checkboxFtp;
+    private javax.swing.JCheckBox checkboxSmtp;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;

@@ -11,19 +11,22 @@ package com.mycompany.jmirror;
  */
 public class Networker 
 {
-    public static void launchService(ServiceType serviceType)
+    public static void launchService(ServiceType service, boolean isChecked)
     {
-        if(serviceType == serviceType.SMTP)
+        if(service == ServiceType.UNKNOWN)
         {
-            System.out.println("smtp");
-        } else if(serviceType == serviceType.FTP)
-        {
-            System.out.println("ftp");
+            System.out.println("Bad service %s".format(service+""));
         }
-        else
+        else if(service == ServiceType.SMTP && isChecked)
         {
-            System.out.println("unrecognized service type");
+            //SMTP
+            System.out.print(Const.LAUNCH_SERVICE_MSG);
+            System.out.println(service.name());
+        } else if(service == ServiceType.FTP && isChecked)
+        {
+            //FTP
+            System.out.print(Const.LAUNCH_SERVICE_MSG);
+            System.out.println(service.name());
         }
-    }
-    
+    }   
 }

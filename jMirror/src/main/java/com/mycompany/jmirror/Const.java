@@ -12,4 +12,5 @@ package com.mycompany.jmirror;
 public class Const
 {
     public static final String INIT_MSG = "-> jMirror launched\n";
+    public static final String LAUNCH_SERVICE_MSG = "-> deploying mirror for service";
 }

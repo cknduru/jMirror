@@ -13,4 +13,5 @@ enum ServiceType
 {
     SMTP,
     FTP,
+    UNKNOWN
 }
