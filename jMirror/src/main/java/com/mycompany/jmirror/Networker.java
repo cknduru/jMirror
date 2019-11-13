@@ -22,11 +22,15 @@ public class Networker
             //SMTP
             System.out.print(Const.LAUNCH_SERVICE_MSG);
             System.out.println(service.name());
+            ServiceSMTP s = new ServiceSMTP();
+            s.start();
         } else if(service == ServiceType.FTP && isChecked)
         {
             //FTP
             System.out.print(Const.LAUNCH_SERVICE_MSG);
             System.out.println(service.name());
+            ServiceFTP s = new ServiceFTP();
+            s.start();
         }
     }   
 }

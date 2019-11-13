@@ -13,4 +13,6 @@ public class Const
 {
     public static final String INIT_MSG = "-> jMirror launched\n";
     public static final String LAUNCH_SERVICE_MSG = "-> deploying mirror for service";
+    public static final Integer PORT_SMTP = 2000;
+    public static final Integer PORT_FTP = 2001;
 }
