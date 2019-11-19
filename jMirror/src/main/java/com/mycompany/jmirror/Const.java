@@ -17,9 +17,9 @@ public class Const
     
     /* service strings */
     public static final String FTP_HOMER = "220 Homer Ftp Server\r\n";
+    public static final String SMTP_MS = "+OK Microsoft Exchange Server 2007 POP3 service ready\r\n";
     
     /* ports */
-    public static final Integer PORT_SMTP = 2000;
-    public static final Integer PORT_FTP = 2001;
-    
+    public static final Integer PORT_FTP = 2000;
+    public static final Integer PORT_SMTP = 2001;
 }

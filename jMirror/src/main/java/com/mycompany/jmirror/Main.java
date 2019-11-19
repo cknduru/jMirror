@@ -111,7 +111,7 @@ public class Main extends javax.swing.JFrame
 
     public static synchronized void updateConsole(String msg)
     {
-        m.jTextArea1.append(msg + "\n");
+        m.jTextArea1.append("-> " + msg + "\n");
     }
     
     private ServiceType textToService(String text)

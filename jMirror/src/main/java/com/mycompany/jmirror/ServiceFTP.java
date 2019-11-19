@@ -27,7 +27,7 @@ class ServiceFTP extends NetworkBase
         catch (Exception e) 
         { 
             // Throwing an exception 
-            System.out.println ("Exception is caught"); 
+            System.out.println ("Exception is caught");
         } 
     } 
 } 

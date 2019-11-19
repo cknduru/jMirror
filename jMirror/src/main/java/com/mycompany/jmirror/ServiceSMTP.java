@@ -5,6 +5,8 @@
  */
 package com.mycompany.jmirror;
 
+import java.io.PrintWriter;
+
 /**
  *
  * @author tux
@@ -15,12 +17,16 @@ class ServiceSMTP extends NetworkBase
     { 
         try
         {
-            System.out.println("SMTP service thread running");
+            Main.m.updateConsole("SMTP service thread running");
             startServer(Const.PORT_SMTP);
+            PrintWriter out = new PrintWriter(super.out.getOutputStream(), true);
+            out.write(Const.SMTP_MS);
+            Main.m.updateConsole("Sent SMTP spoof to " + super.out.getInetAddress() + "");
+            out.close();
         } 
         catch (Exception e) 
         { 
-            // Throwing an exception 
+            // Throwing an exception
             System.out.println ("Exception is caught"); 
         } 
     } 
