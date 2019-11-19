@@ -7,6 +7,7 @@ package com.mycompany.jmirror;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,14 +17,14 @@ import java.util.logging.Logger;
  */
 public class NetworkBase extends Thread
 {
-    ServerSocket server;
+    Socket out;
     
     public void startServer(Integer port)
     {
         try 
         {
             System.out.println("-> launching on port ");
-            server = new ServerSocket(port);
+            out = new ServerSocket(port).accept();
         } catch (IOException ex)
         {
             Logger.getLogger(NetworkBase.class.getName()).log(Level.SEVERE, null, ex);

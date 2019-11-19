@@ -11,8 +11,15 @@ package com.mycompany.jmirror;
  */
 public class Const
 {
+    /* strings */
     public static final String INIT_MSG = "-> jMirror launched\n";
     public static final String LAUNCH_SERVICE_MSG = "-> deploying mirror for service";
+    
+    /* service strings */
+    public static final String FTP_HOMER = "220 Homer Ftp Server\r\n";
+    
+    /* ports */
     public static final Integer PORT_SMTP = 2000;
     public static final Integer PORT_FTP = 2001;
+    
 }

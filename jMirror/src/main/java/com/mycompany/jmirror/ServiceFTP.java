@@ -5,6 +5,8 @@
  */
 package com.mycompany.jmirror;
 
+import java.io.PrintWriter;
+
 /**
  *
  * @author tux
@@ -17,6 +19,9 @@ class ServiceFTP extends NetworkBase
         {
             System.out.println("FTP service thread running");
             startServer(Const.PORT_FTP);
+            PrintWriter out = new PrintWriter(super.out.getOutputStream(), true);
+            out.write(Const.FTP_HOMER);
+            out.close();
         } 
         catch (Exception e) 
         { 
