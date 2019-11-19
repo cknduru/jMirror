@@ -13,7 +13,7 @@ import java.util.*;
  */
 public class Main extends javax.swing.JFrame
 {
-    static Main m;
+    public static Main m;
     
     /**
      * Creates new form Main
@@ -109,6 +109,11 @@ public class Main extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public static synchronized void updateConsole(String msg)
+    {
+        m.jTextArea1.append(msg + "\n");
+    }
+    
     private ServiceType textToService(String text)
     {
         if (text == "SMTP")
