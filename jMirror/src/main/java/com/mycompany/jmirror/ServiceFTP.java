@@ -9,14 +9,14 @@ package com.mycompany.jmirror;
  *
  * @author tux
  */
-class ServiceSMTP extends NetworkBase 
+class ServiceFTP extends NetworkBase
 { 
     public void run() 
     { 
         try
         {
-            System.out.println("SMTP service thread running");
-            startServer(Const.PORT_SMTP);
+            System.out.println("FTP service thread running");
+            startServer(Const.PORT_FTP);
         } 
         catch (Exception e) 
         { 
