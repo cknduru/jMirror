@@ -17,11 +17,10 @@ class ServiceFTP extends NetworkBase
     { 
         try
         {
-            Main.m.updateConsole("FTP service thread running");
-            startServer(Const.PORT_FTP);
+            startServer(ServiceType.FTP, Const.PORT_FTP);
             PrintWriter out = new PrintWriter(super.out.getOutputStream(), true);
-            out.write(Const.FTP_HOMER);
-            Main.m.updateConsole("Sent FTP spoof to " + super.out.getInetAddress() + "");
+            out.write(Const.FTP_STRING_HOMER);
+            Main.updateConsole("Sent FTP spoof to " + super.out.getInetAddress() + "");
             out.close();
         } 
         catch (Exception e) 

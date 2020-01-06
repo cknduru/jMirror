@@ -17,11 +17,10 @@ class ServiceSMTP extends NetworkBase
     { 
         try
         {
-            Main.m.updateConsole("SMTP service thread running");
-            startServer(Const.PORT_SMTP);
+            startServer(ServiceType.SMTP, Const.PORT_SMTP);
             PrintWriter out = new PrintWriter(super.out.getOutputStream(), true);
-            out.write(Const.SMTP_MS);
-            Main.m.updateConsole("Sent SMTP spoof to " + super.out.getInetAddress() + "");
+            out.write(Const.SMTP_STRING_MS_EXCHANGE);
+            Main.updateConsole("Sent SMTP spoof to " + super.out.getInetAddress() + "");
             out.close();
         } 
         catch (Exception e) 

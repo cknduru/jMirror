@@ -19,11 +19,12 @@ public class NetworkBase extends Thread
 {
     Socket out;
     
-    public void startServer(Integer port)
+    public void startServer(ServiceType service, Integer port)
     {
         try 
         {
-            System.out.println("-> launching on port ");
+            String running_msg = String.format("%s service running on port %d", service.name(), port);
+            Main.updateConsole(running_msg);
             out = new ServerSocket(port).accept();
         } catch (IOException ex)
         {
