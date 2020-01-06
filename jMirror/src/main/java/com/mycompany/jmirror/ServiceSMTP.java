@@ -23,10 +23,10 @@ class ServiceSMTP extends NetworkBase
             Main.updateConsole("Sent SMTP spoof to " + super.out.getInetAddress() + "");
             out.close();
         } 
-        catch (Exception e) 
+        catch (Exception ex) 
         { 
-            // Throwing an exception
-            System.out.println ("Exception is caught"); 
+            // Print error to console
+            System.out.println(ex.toString());
         } 
     } 
 } 

@@ -6,6 +6,7 @@
 package com.mycompany.jmirror;
 
 import java.util.*;
+import javax.swing.JScrollBar;
 
 /**
  *
@@ -112,6 +113,9 @@ public class Main extends javax.swing.JFrame
     public static synchronized void updateConsole(String msg)
     {
         m.jTextArea1.append("-> " + msg + "\n");
+        
+        // make sure text area is scrolled to bottom position
+        m.jTextArea1.setCaretPosition(m.jTextArea1.getDocument().getLength());
     }
     
     private ServiceType textToService(String text)
