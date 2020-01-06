@@ -13,7 +13,7 @@ public class Const
 {
     /* strings */
     public static final String INIT_MSG = "-> jMirror ready\n\n";
-    public static final String LAUNCH_SERVICE_MSG = "-> deploying mirror for service";
+    public static final String LAUNCH_MSG = "-> deploying mirror for service";
     
     /* service strings */
     public static final String FTP_STRING_HOMER = "220 Homer Ftp Server\r\n";

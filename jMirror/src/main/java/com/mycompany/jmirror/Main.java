@@ -133,8 +133,11 @@ public class Main extends javax.swing.JFrame
     private void btnLaunchActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnLaunchActionPerformed
     {//GEN-HEADEREND:event_btnLaunchActionPerformed
         // launch services
-        Networker.launchService(textToService(m.checkboxSmtp.getText()), m.checkboxSmtp.isSelected());
-        Networker.launchService(textToService(m.checkboxFtp.getText()), m.checkboxFtp.isSelected());
+        if (m.checkboxSmtp.isSelected())
+            Networker.launchService(textToService(m.checkboxSmtp.getText()));
+        
+        if (m.checkboxFtp.isSelected())
+            Networker.launchService(textToService(m.checkboxFtp.getText()));
     }//GEN-LAST:event_btnLaunchActionPerformed
 
     /**
